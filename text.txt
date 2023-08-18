@@ -1,0 +1,41 @@
+
+
+Use npm install --save-dev sequelize-cli
+
+Use npm install --save-dev sequelize-auto
+
+
+npx sequelize-auto  -o "./models" -d developer_blogs  -h localhost -u postgres -p 5432 -x mahadev -e postgres
+
+
+developer_blogs
+
+
+#######################################################
+#for adding table Rating
+Blog.hasMany(Rating);
+Rating.belongTo(Blog);
+
+User.hasMany(Rating)
+Rating.belongTo(User);
+
+Rating => rating_id, user_id, blog_id, rating(1 t 10);
+
+                    1     1      1      4    
+                    2     1      2      6
+                    3     2      1      8
+
+
+1     1    1  
+2     2    1  
+
+#########################################################
+
+# adding table comment
+
+Blog.hasMany(comment);
+comment.belongTo(Blog);
+
+user.hasMany(comment);
+comment.belongTOMany(user);
+
